@@ -7,16 +7,18 @@ import android.view.MenuItem;
 import android.view.*;
 import android.content.Intent;
 import android.widget.EditText;
-
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
     public final static String EXTRA_MESSAGE = "com.practice.lcn12.EXTRA_MESSAGE";
+    TextView tvResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tvResult = (TextView) findViewById(R.id.tvResult);
     }
 
 
@@ -44,15 +46,15 @@ public class MainActivity extends ActionBarActivity {
 
     //sends message when button is clicked
     public void sendMessage(View view){
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        //Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText fraction = (EditText) findViewById(R.id.fraction);
         EditText increase = (EditText) findViewById(R.id.increase);
         Float fraction_in = Float.parseFloat(fraction.getText().toString());
         int increase_i = Integer.parseInt(increase.getText().toString());
         float fraction_f = fraction_in/100;
         float result = 1/(fraction_f + (1/increase_i)*(1-fraction_f));
-        intent.putExtra(EXTRA_MESSAGE, (new Float(result)).toString());
-        startActivity(intent);
+        tvResult.setText("the speedup is " + result);
+
 
     }
 }

@@ -45,14 +45,15 @@
         android:layout_height="fill_parent">
 
         <TextView
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/textView"
-            android:layout_gravity="top"
-            android:textStyle="bold"
-            android:numeric="decimal" />
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:textSize="12pt"
+            android:layout_marginTop="3pt"
+            android:id="@+id/tvResult"
+            android:gravity="center_horizontal">
+        </TextView>
     </TableRow>
 
 
