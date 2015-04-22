@@ -10,5 +10,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_front_page">FrontPage</string>
-    <string name="amdahl_b">Amdahls Law Calculator</string>
+    <string name="amdahl_b">Amdahl\'s Law Calculator</string>
+    <string name="mipsref_b">Interactive MIPS reference</string>
+    <string name="javatomips_b">Java to MIPS converter</string>
+    <string name="pipeline_b">Interactive Pipelining Demo</string>
 </resources>
