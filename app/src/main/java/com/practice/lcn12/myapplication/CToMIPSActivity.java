@@ -2,19 +2,59 @@ package com.practice.lcn12.myapplication;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 
 public class CToMIPSActivity extends ActionBarActivity {
-
+    private WebView mWebView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cto_mips);
-        WebView myWebView = (WebView) findViewById(R.id.webview);
-        myWebView.loadUrl("http://assembly.ynh.io/");
+
+        mWebView = (WebView) findViewById(R.id.webview);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.setWebChromeClient(new WebChromeClient());
+        mWebView.setWebViewClient(new HelloWebViewClient()
+        {
+            @Override  
+            public void onPageFinished(WebView view, String url)  
+            {  
+                //Calling an init method that tells the website, we're ready 
+                mWebView.loadUrl("javascript:m2Init()");
+                page11(mWebView);
+            }  
+        });
+        mWebView.getSettings().setDomStorageEnabled(true);
+        mWebView.loadUrl("http://assembly.ynh.io/");  
+    }
+    private class HelloWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
+
+    }
+    
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
+            mWebView.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void page11(View view)
+    {
+        mWebView.loadUrl("javascript:m2LoadPage(1)");
     }
 
 
