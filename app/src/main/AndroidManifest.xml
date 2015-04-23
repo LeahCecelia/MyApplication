@@ -32,6 +32,11 @@
             android:name=".CToMIPSActivity"
             android:label="@string/title_activity_cto_mips" >
         </activity>
+        <activity
+            android:name=".MIPSRefActivity"
+            android:label="@string/title_activity_mips_ref">
+
+         </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 

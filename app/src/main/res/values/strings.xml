@@ -28,4 +28,5 @@
         <item>overall speedup</item>
     </string-array>
     <string name="title_activity_cto_mips">CToMIPSActivity</string>
+    <string name="title_activity_mips_ref">MIPSRefActivity</string>
 </resources>

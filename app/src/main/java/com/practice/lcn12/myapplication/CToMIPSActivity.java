@@ -1,10 +1,14 @@
 package com.practice.lcn12.myapplication;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 
 public class CToMIPSActivity extends ActionBarActivity {
@@ -15,6 +19,9 @@ public class CToMIPSActivity extends ActionBarActivity {
         setContentView(R.layout.activity_cto_mips);
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.loadUrl("http://assembly.ynh.io/");
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
     }
 
 
@@ -39,4 +46,6 @@ public class CToMIPSActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
