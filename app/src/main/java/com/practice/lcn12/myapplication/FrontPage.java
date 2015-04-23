@@ -48,11 +48,12 @@ public class FrontPage extends ActionBarActivity {
     /*public void goToMipsRef(View view){
         Intent intent = new Intent(this, MainActivity.class); //insert name of your activity instead of "MainActivity"
         startActivity(intent);
-    }
-    public void goToJavaToMips(View view){
-        Intent intent = new Intent(this, MainActivity.class); //insert name of your activity instead of "MainActivity"
+    }*/
+    public void goToCToMips(View view){
+        Intent intent = new Intent(this, CToMIPSActivity.class); //insert name of your activity instead of "MainActivity"
         startActivity(intent);
     }
+    /*
     public void goToPipeline(View view){
         Intent intent = new Intent(this, MainActivity.class); //insert name of your activity instead of "MainActivity"
         startActivity(intent);
