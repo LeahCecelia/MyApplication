@@ -25,7 +25,6 @@ public class MIPSRefActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_mipsref, menu);
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
-        //myWebView.setWebChromeClient(new WebChromeClient());
         myWebView.setHorizontalScrollBarEnabled(false);
         myWebView.loadUrl("file:///android_asset/MipsReference.html");
         return true;

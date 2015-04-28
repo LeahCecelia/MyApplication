@@ -14,6 +14,8 @@ public class CToMIPSActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cto_mips);
         WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.getSettings().setJavaScriptEnabled(true);
+        myWebView.setHorizontalScrollBarEnabled(false);
         myWebView.loadUrl("http://assembly.ynh.io/");
     }
 
