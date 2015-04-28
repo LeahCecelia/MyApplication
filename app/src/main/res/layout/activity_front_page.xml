@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:text="@string/mipsref_b"
         android:id="@+id/button2"
+        android:onClick="goToMipsRef"
         android:layout_gravity="center_vertical" />
 
     <Button

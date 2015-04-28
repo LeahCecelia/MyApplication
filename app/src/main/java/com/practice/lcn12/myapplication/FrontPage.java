@@ -45,10 +45,10 @@ public class FrontPage extends ActionBarActivity {
         startActivity(intent);
     }
 
-    /*public void goToMipsRef(View view){
-        Intent intent = new Intent(this, MainActivity.class); //insert name of your activity instead of "MainActivity"
+    public void goToMipsRef(View view){
+        Intent intent = new Intent(this, MIPSRefActivity.class); //insert name of your activity instead of "MainActivity"
         startActivity(intent);
-    }*/
+    }
     public void goToCToMips(View view){
         Intent intent = new Intent(this, CToMIPSActivity.class); //insert name of your activity instead of "MainActivity"
         startActivity(intent);
