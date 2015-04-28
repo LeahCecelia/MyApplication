@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.ListView;
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class MIPSRefActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_mipsref, menu);
         WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.getSettings().setJavaScriptEnabled(true);
+        //myWebView.setWebChromeClient(new WebChromeClient());
         myWebView.setHorizontalScrollBarEnabled(false);
         myWebView.loadUrl("file:///android_asset/MipsReference.html");
         return true;
