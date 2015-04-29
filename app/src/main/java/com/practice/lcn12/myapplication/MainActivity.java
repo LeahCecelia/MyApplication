@@ -111,8 +111,13 @@ public class MainActivity extends ActionBarActivity implements  AdapterView.OnIt
             EditText partial = (EditText) findViewById(R.id.increase);
             Float o = Float.parseFloat(overall.getText().toString());
             Float s = Float.parseFloat(partial.getText().toString());
-            float result = (1-o)/(1+(o/s));
-            tvResult.setText("the partial fraction is " + result);
+            if(1- s < 0) {
+                tvResult.setText("invalid values");
+            }
+            else {
+                float result = ((s / o) - s) / (1 - s);
+                tvResult.setText("the partial fraction is " + result);
+            }
 
         }
 
