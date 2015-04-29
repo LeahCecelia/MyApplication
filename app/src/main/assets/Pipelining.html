@@ -8,14 +8,14 @@
         function makePipeline(tableid, numRows) {  
             var i;
             for(i = 0; i < numRows; i++){
-                var start = getStart(i, numRows);
-                var middle = "<td class = '"+tableid+"_"+(i)+"'><img src = 'IM.png' class = 'InstFetchImg'></td><td class = '"+tableid+"_"+(i+1)+"'><img src = 'Reg1.png' class = 'Reg1Img'></td><td class = '"+tableid+"_"+(i+2)+"'><img src = 'ALU.png' class = 'ALUImg'></td><td class = '"+tableid+"_"+(i+3)+"'><img src = 'DM.png' class = 'DMImg'></td><td class = '"+tableid+"_"+(i+4)+"'><img src = 'Reg2.png' class = 'Reg2Img'></td>";
+                var start = getStart(i, numRows, tableid);
+                var middle = "<td class = '"+tableid+"_"+(i)+" "+tableid+"_row_"+i+"'><img src = 'IM.png' class = 'InstFetchImg'></td><td class = '"+tableid+"_"+(i+1)+" "+tableid+"_row_"+i+"'><img src = 'Reg1.png' class = 'Reg1Img'></td><td class = '"+tableid+"_"+(i+2)+" "+tableid+"_row_"+i+"'><img src = 'ALU.png' class = 'ALUImg'></td><td class = '"+tableid+"_"+(i+3)+" "+tableid+"_row_"+i+"'><img src = 'DM.png' class = 'DMImg'></td><td class = '"+tableid+"_"+(i+4)+" "+tableid+"_row_"+i+"'><img src = 'Reg2.png' class = 'Reg2Img'></td>";
                 var end = getEnd(i, numRows);
                 $("#"+tableid).append(start+middle+end);
             }
         }
         
-        function getStart(it, numRows){
+        function getStart(it, numRows, tableid){
             var s = "<tr>";
             var i;
             for(i = 0; i < it; i++){
@@ -35,15 +35,18 @@
             return s;
         }
         
-        function movePipeline(tableid){
+        function movePipeline(tableid, hazardcol1, hazardrow1, hazardcol2, hazardrow2){
             var i = -1;
             var atEnd = false;
             while(!atEnd){
                 i++;
                 if($("."+tableid+"_"+i)[0]){
                     $("."+tableid+"_"+i).each(function () {
-                        if( !$(this).hasClass("highlight")  ){
+                        if( !$(this).hasClass("highlight") && !$(this).hasClass("hazard") ){
                             atEnd = true;
+                        }
+                        if(atEnd && (atHazardCell(this, hazardcol1, hazardrow1, tableid) || atHazardCell(this, hazardcol2, hazardrow2, tableid))){
+                            $(this).addClass("hazard");
                         }
                     });
                 }else{
@@ -53,16 +56,25 @@
             }
             if(i != -1){
                 $("."+tableid+"_"+i).each(function () {
-                    $(this).addClass("highlight");
+                    if(!$(this).hasClass("hazard")){
+                        $(this).addClass("highlight");
+                    }
                 });
             }else{
                 restartAnimation(tableid);
             }
         }
         
+        function atHazardCell(td, hazardcol, hazardrow, tableid){
+            var rowclass = tableid+"_row_"+hazardrow;
+            var colclass = tableid+"_"+hazardcol;
+            return $(td).hasClass(rowclass) && $(td).hasClass(colclass);
+        }
+        
         function restartAnimation(tableid){
             $("#"+tableid+" td").each( function () {
                 $(this).removeClass("highlight");
+                $(this).removeClass("hazard");
             });
         }
     
@@ -73,9 +85,12 @@
 </head>
 
 <body>
-
-    <table id = "pipeline" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline')"></table>
-
+    <table><tr><td>hello</td><td rowspan = "3">
+    <table id = "pipeline" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', 3, 0, 3, 2)"></table>
+    </td></tr>
+    <tr><td>there</td></tr>
+    <tr><td>bla</td></tr>
+    </table>
 </body>
 
 </html>

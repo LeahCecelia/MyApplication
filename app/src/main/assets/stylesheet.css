@@ -26,3 +26,7 @@
 .highlight {
     border: 3px solid yellow;
 }
+
+.hazard {
+    border: 3px solid red;
+}
