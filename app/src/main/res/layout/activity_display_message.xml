@@ -6,9 +6,25 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.practice.lcn12.myapplication.DisplayMessageActivity">
 
-    <ListView
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView" />
+        android:text="@string/with_para"
+        android:id="@+id/button5"
+        android:layout_above="@+id/button6"
+        android:layout_alignRight="@+id/button6"
+        android:layout_alignEnd="@+id/button6"
+        android:layout_alignLeft="@+id/button6"
+        android:layout_alignStart="@+id/button6"
+        android:onClick="goToPara"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wo_para"
+        android:id="@+id/button6"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="goToWOPara"/>
 </RelativeLayout>

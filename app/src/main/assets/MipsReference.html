@@ -14,6 +14,7 @@
 
 <body>
     <div id = "mipsAccordion">
+<<<<<<< HEAD
         <h3>add $a, $b, $c</h3>
             <div>
                 <div>The add instruction adds the contests of registers $b and $c, and stores the result into $a</div>
@@ -70,6 +71,529 @@
                 </div>
             </div>
             
+=======
+        <h3>add $rd, $rs, $rt</h3>
+            <div>
+                <div>The add instruction adds the contents of registers $rs and $rt, and stores the result into $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = R[rs] + R[rt]
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+       <h3>addi $rt, $rs, imm</h3>
+            <div>
+                <div>The add immediate instruction adds the contents of register $rs and a sign-extended immediate, and stores the result into $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = R[rs] + SignExtImm
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+            <h3>addiu $rt, $rs, imm</h3>
+            <div>
+                <div>The add immediate unsigned instruction adds the contents of register $rs and as sign-extended unsigned immediate, and stores the result into $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = R[rs] + SignExtImm
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>addu $rd, $rs, $rt</h3>
+            <div>
+                <div>The add unsigned instruction adds the contents of registers $rs and $rt, and stores the result into $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = R[rs] + R[rt]
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>and $rd, $rs, $rt</h3>
+            <div>
+                <div>The and instruction takes the bitwise and of the contents of registers $rs and $rt, and stores the result into $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = R[rs] & R[rt]
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>andi $rt, $rs, imm</h3>
+            <div>
+                <div>The andi instruction bitwise ands the contents of register $rs and an immediate, and stores the result into $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = R[rs] & ZeroExtImm
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>beq $rs, $rt, offset</h3>
+            <div>
+                <div>The branch on equal instruction compares the contents of registers $rs and $rt and branches if they are equal</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    if (R[rs] == R[rt]),<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; PC = PC + 4 + BranchAddr
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>bne $rs, $rt, offset</h3>
+            <div>
+                <div>The branch on equal instruction compares the contents of registers $rs and $rt and branches if they are not equal</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    if (R[rs] != R[rt]),<br>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; PC = PC + 4 + BranchAddr
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>j target</h3>
+            <div>
+                <div>The jump instruction jumps to the target address</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    PC = JumpAddr
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    J-Type
+                </div>
+            </div>
+			<h3>jal target</h3>
+            <div>
+                <div>The jump and link instruction jumps to the target address and stores the return address into $31</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[31] = PC + 8; PC = JumpAddr
+                    </span>
+
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    J-Type
+                </div>
+            </div>
+			<h3>jr $rs</h3>
+            <div>
+                <div>The jump register instruction jumps to the address stored in register $rs</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    PC = R[rs]
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>lbu $rt, offset($rs)</h3>
+            <div>
+                <div>The load byte unsigned instruction loads the specified byte into $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = {24'b0, M[R[rs] + SignExtImm](7:0)}
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>lhu $rt, offset($rs)</h3>
+            <div>
+                <div>The load half word unsigned instruction loads the specified half word into $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = {16'b0, M[R[rs] + SignExtImm](15:0)}
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>ll $rt, offset($rs)</h3>
+            <div>
+                <div>The load linked instruction loads the specified word into $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = M[R[rs] + SignExtImm]
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>lui $rt, imm</h3>
+            <div>
+                <div>The load upper immediate instruction loads the immediate into the upper sixteen bits of $rt and loads zeroes into the lower sixteen bits</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = {imm, 16'b0}
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>lw $rt, offset($rs)</h3>
+            <div>
+                <div>The load word instruction loads the specified word into $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = M[R[rs] + SignExtImm]
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>nor $rd, $rs, $rt</h3>
+            <div>
+                <div>The nor instruction bitwise nors the contents of registers $rs and $rt and stores the result in $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = ~(R[rs]|R[rt])
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>or $rd, $rs, $rt</h3>
+            <div>
+                <div>The or instruction bitwise ors the contents of registers $rs and $rt and stores the result in $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = R[rs]|R[rt]
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>ori $rt, $rs, imm</h3>
+            <div>
+                <div>The or immediate instruction bitwise nors the contents of register $rs and an immediate and stores the result in $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = R[rs]|imm
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>slt $rd, $rs, $rt</h3>
+            <div>
+                <div>The set less than instruction compares the contents of registers $rs and $rt and sets $rd to one if $rs is less than $rt and zero if it is not</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = (R[rs] &lt; R[rt])?1:0
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>slti $rt, $rs, imm</h3>
+            <div>
+                <div>The set less than immediate instruction compares the contents of register $rs and an immediate and sets $rt to one if $rs is less than the immediate and zero if it is not</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = (R[rs] &lt; SignExtImm)?1:0
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>sltiu $rt, $rs, imm</h3>
+            <div>
+                <div>The set less than immediate unsigned instruction compares the contents of register $rs and an unsigned immediate and sets $rt to one if $rs is less than the immediate and zero if it is not</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rt] = (R[rs] &lt; SignExtImm)?1:0
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>sltu $rd, $rs, $rt</h3>
+            <div>
+                <div>The set less than unsigned instruction compares the contents of registers $rs and $rt and sets $rd to one if $rs is less than $rt and zero if it is not</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = (R[rs] &lt; R[rt])?1:0
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>sll $rd, $rt, shamt</h3>
+            <div>
+                <div>The shift left logical instruction shifts the contents of $rt left by the shift amount and stores the result in $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = R[rt] &lt;&lt; shamt
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>srl $rd, $rt, shamt</h3>
+            <div>
+                <div>The shift right logical instruction shifts the contents of $rt right by the shift amount and stores the result in $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = R[rt] &gt;&gt;&gt; shamt
+                    </span>
+                    
+                </div>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>sb $rt, offset($rs)</h3>
+            <div>
+                <div>The store byte instruction stores the specified byte in $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    M[R[rs] + SignExtImm](7:0) = R[rt](7:0)
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>sh $rt, offset($rs)</h3>
+            <div>
+                <div>The store halfword instruction stores the specified halfword in $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    M[R[rs] + SignExtImm](15:0) = R[rt](15:0)
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>sw $rt, offset($rs)</h3>
+            <div>
+                <div>The store word instruction stores the specified word in $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    M[R[rs] + SignExtImm] = R[rt]
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    I-Type
+                </div>
+            </div>
+			<h3>sub $rd, $rs, $rt</h3>
+            <div>
+                <div>The subtract instruction subtracts the contents of $rt from $rs and stores the result in $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = R[rs] - R[rt]
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>subu $rd, $rs, $rt</h3>
+            <div>
+                <div>The subtract unsigned instruction subtracts the contents of $rt from $rs and stores the result in $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = R[rs] - R[rt]
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>mfhi $rd</h3>
+            <div>
+                <div>The move from hi instruction moves the contents of register Hi to $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = Hi
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>mflo $rd</h3>
+            <div>
+                <div>The move from lo instruction moves the contents of register Lo to $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = Lo
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3>mult $rs, $rt</h3>
+            <div>
+                <div>The multiply instruction multiplies the contents of registers $rs and $rt and stores the 64-bit result in registers Hi and Lo</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    {Hi, Lo} = R[rs] + R[rt]
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    R-Type
+                </div>
+            </div>
+			<h3><i>blt $rt, $rs, Label</i></h3>
+            <div>
+                <div>The branch less than instruction compares the two registers and branches if $rs is less than $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    if (R[rs] &lt; R[rt]) PC = Label
+                    </span>
+                    
+                </div><br>
+				<div><span class = "pipelineLabel">Instruction Translation:</span>
+                    <br>slt $t0, $rt, $rs<br>bne $t0, $zero, LABEL
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    Pseudo-instruction
+                </div>
+            </div>
+			<h3><i>bgt $rt, $rs, Label</i></h3>
+            <div>
+                <div>The branch greater than instruction compares the two registers and branches if $rs is greater than $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    if (R[rs] &gt; R[rt]) PC = Label
+                    </span>
+                    
+                </div><br>
+				<div><span class = "pipelineLabel">Instruction Translation:</span>
+                    <br>slt $t0, $rs, $rt<br>bne $t0, $zero, LABEL
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    Pseudo-instruction
+                </div>
+            </div>
+			<h3><i>ble $rt, $rs, Label</i></h3>
+            <div>
+                <div>The branch less than or equal instruction compares the two registers and branches if $rs is less than or equal to $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    if (R[rs] &lt;= R[rt]) PC = Label
+                    </span>
+                    
+                </div><br>
+				<div><span class = "pipelineLabel">Instruction Translation:</span>
+                    <br>slt $t0, $rs, $rt<br>beq $t0, $zero, LABEL
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    Pseudo-instruction
+                </div>
+            </div>
+			<h3><i>bge $rt, $rs, Label</i></h3>
+            <div>
+                <div>The branch greater than or equal instruction compares the two registers and branches if $rs is greater than or equal to $rt</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    if (R[rs] &gt;= R[rt]) PC = Label
+                    </span>
+                    
+                </div><br>
+				<div><span class = "pipelineLabel">Instruction Translation:</span>
+                    <br>slt $t0, $rt, $rs<br>beq $t0, $zero, LABEL
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    Pseudo-instruction
+                </div>
+            </div>
+			<h3><i>li $rd, imm</i></h3>
+            <div>
+                <div>The load immediate instruction loads the immediate into $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = immediate
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    Pseudo-instruction
+                </div>
+            </div>
+			<h3><i>move $rd, $rs</i></h3>
+            <div>
+                <div>The move instruction moves the contents of $rs into $rd</div><br>
+                <div><span class = "pipelineLabel">Operation:</span>
+                    <span class = "code">
+                    R[rd] = R[rs]
+                    </span>
+                    
+                </div><br>
+                <div><span class = "pipelineLabel">Instruction Format:</span>
+                    Pseudo-instruction
+                </div>
+            </div>
+>>>>>>> acf18ecfb6c9d835daf14dbc85d0c29885efafc8
     </div>
 
 </body>

@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">My Application</string>
 
-    <string name="increase_in_speed">Enter the factor of partial speedup</string>
-    <string name="fraction_tobe_spedup">Enter the fraction of program to be sped up</string>
-    <string name="button_send">Send</string>
+    <string name="increase_in_speed">Enter the factor of partial speedup, S </string>
+    <string name="fraction_tobe_spedup">Enter the fraction of program to be sped up, P</string>
+    <string name="button_send">Calculate</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Amdahl\'s Law without Parallelization</string>
     <string name="title_activity_MIPSRef">MIPS Reference</string>
-    <string name="title_activity_display_message">My Message</string>
+    <string name="title_activity_display_message">Amdahl\'s Law</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_front_page">FrontPage</string>
+    <string name="title_activity_front_page">EECS 314 Reference Tool</string>
     <string name="amdahl_b">Amdahl\'s Law Calculator</string>
     <string name="mipsref_b">Interactive MIPS reference</string>
-    <string name="javatoc_b">C to MIPS converter</string>
+    <string name="javatoc_b">C to x86 and ARM converter</string>
     <string name="pipeline_b">Interactive Pipelining Demo</string>
     <string name="equal">=</string>
     <string name="overallspeedup">Overall speedup</string>
@@ -28,5 +28,23 @@
         <item>percent of program sped up</item>
         <item>overall speedup</item>
     </string-array>
-    <string name="title_activity_cto_mips">CToMIPSActivity</string>
+    <string name="title_activity_cto_mips">C to x86 Assembly</string>
+    <string name="title_activity_mips_ref">Interactive MIPS Reference</string>
+    <string name="pick_value">Pick value to calculate below: </string>
+    <string name="with_para">With Parallelization</string>
+    <string name="wo_para">Without Parallelization</string>
+    <string name="title_activity_parallelized_amdahls">Amdahl\'s Law with Parallelization</string>
+    <string name="sn">S(N)</string>
+    <string name="fractionp">(1-P) + (P/N) </string>
+    <string name="increase_in_speed_p">Enter factor of parallelization, N</string>
+    <string name="fraction_tobe_spedup_p">Enter the fraction of program to be parallelized, P</string>
+    <string-array name="values_array_P">
+        <item>amount of parallelization</item>
+        <item>percent of program parallelized</item>
+        <item>overall speedup</item>
+    </string-array>
+    <string name="title_activity_pipelining">Interactive Pipelining</string>
+    <string name="title_activity_arm">ARMActivity</string>
+    <string name="gotoarm_b">C to ARM Compiler</string>
+
 </resources>

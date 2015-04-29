@@ -41,7 +41,7 @@ public class FrontPage extends ActionBarActivity {
     }
 
     public void goToAmdahl(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
         startActivity(intent);
     }
 
@@ -53,9 +53,16 @@ public class FrontPage extends ActionBarActivity {
         Intent intent = new Intent(this, CToMIPSActivity.class); //insert name of your activity instead of "MainActivity"
         startActivity(intent);
     }
-    /*
+
     public void goToPipeline(View view){
-        Intent intent = new Intent(this, MainActivity.class); //insert name of your activity instead of "MainActivity"
+        Intent intent = new Intent(this, PipeliningActivity.class); //insert name of your activity instead of "MainActivity"
         startActivity(intent);
-    }*/
+    }
+
+    public void goToARM(View view){
+        Intent intent = new Intent(this, ARMActivity.class); //insert name of your activity instead of "MainActivity"
+        startActivity(intent);
+    }
+
+
 }

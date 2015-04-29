@@ -11,16 +11,16 @@ import android.webkit.WebView;
 import android.widget.Toast;
 
 
-public class CToMIPSActivity extends ActionBarActivity {
+public class ARMActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cto_mips);
+        setContentView(R.layout.activity_arm);
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.setHorizontalScrollBarEnabled(false);
-        myWebView.loadUrl("http://assembly.ynh.io/");
+        myWebView.loadUrl("http://gcc.godbolt.org/");
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
@@ -30,7 +30,7 @@ public class CToMIPSActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_cto_mi, menu);
+        getMenuInflater().inflate(R.menu.menu_arm, menu);
         return true;
     }
 
@@ -51,3 +51,4 @@ public class CToMIPSActivity extends ActionBarActivity {
 
 
 }
+

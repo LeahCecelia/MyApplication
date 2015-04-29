@@ -26,11 +26,13 @@
         android:onClick="goToCToMips"
         android:id="@+id/button3" />
 
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pipeline_b"
-        android:id="@+id/button4" />
+        android:id="@+id/button4"
+        android:onClick="goToPipeline"/>
 
 
 </TableLayout>
