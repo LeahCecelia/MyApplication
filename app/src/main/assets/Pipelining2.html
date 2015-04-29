@@ -56,6 +56,12 @@ This is <em>exactly</em> how pipelining works. Finding and reading a recipe is a
  Notice how the result of the first instruction is stored into $t0, and the second instruction reads from $t0.  However, in the pipeline, the result from the first instruction is stored into $t0 <em>after</em> the second instruction reads from $t0.  This is a problem!  The value read in the second instruction will be $t0 before $t2 is added to it!  This is called a <strong>hazard</strong>.
  
  <h2>Pipeline Hazards</h2>
+ <h2>Pipeline Hazards</h2>
+    <ul>
+    <li><a href = "datahazards.html">Data Hazards</a></li>
+    <li><a href = "controlhazards.html">Control Hazards</a></li>
+    <li><a href = "structuralhazards.html">Structural Hazards</a></li>
+    </ul>
     
 </body>
     
