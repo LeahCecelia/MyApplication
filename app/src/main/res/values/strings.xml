@@ -43,5 +43,6 @@
         <item>percent of program parallelized</item>
         <item>overall speedup</item>
     </string-array>
+    <string name="title_activity_pipelining">PipeliningActivity</string>
 
 </resources>

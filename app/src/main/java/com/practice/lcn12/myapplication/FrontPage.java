@@ -53,9 +53,9 @@ public class FrontPage extends ActionBarActivity {
         Intent intent = new Intent(this, CToMIPSActivity.class); //insert name of your activity instead of "MainActivity"
         startActivity(intent);
     }
-    /*
+
     public void goToPipeline(View view){
-        Intent intent = new Intent(this, MainActivity.class); //insert name of your activity instead of "MainActivity"
+        Intent intent = new Intent(this, PipeliningActivity.class); //insert name of your activity instead of "MainActivity"
         startActivity(intent);
-    }*/
+    }
 }

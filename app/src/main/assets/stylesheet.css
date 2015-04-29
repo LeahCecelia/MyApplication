@@ -1,0 +1,32 @@
+.InstFetchImg {
+    width:75px;
+    height:124px;
+}
+
+.Reg1Img {
+    width:75px;
+    height:124px;
+}
+
+.ALUImg {
+    width:75px;
+    height:124px;
+}
+
+.DMImg {
+    width:75px;
+    height:124px;
+}
+
+.Reg2Img {
+    width:75px;
+    height:124px;
+}
+
+.highlight {
+    border: 3px solid yellow;
+}
+
+.hazard {
+    border: 3px solid red;
+}
