@@ -13,7 +13,7 @@
     <string name="title_activity_front_page">EECS 314 Reference Tool</string>
     <string name="amdahl_b">Amdahl\'s Law Calculator</string>
     <string name="mipsref_b">Interactive MIPS reference</string>
-    <string name="javatoc_b">C to MIPS converter</string>
+    <string name="javatoc_b">C to x86 and ARM converter</string>
     <string name="pipeline_b">Interactive Pipelining Demo</string>
     <string name="equal">=</string>
     <string name="overallspeedup">Overall speedup</string>
