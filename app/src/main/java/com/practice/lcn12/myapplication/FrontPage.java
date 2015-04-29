@@ -59,4 +59,10 @@ public class FrontPage extends ActionBarActivity {
         startActivity(intent);
     }
 
+    public void goToARM(View view){
+        Intent intent = new Intent(this, ARMActivity.class); //insert name of your activity instead of "MainActivity"
+        startActivity(intent);
+    }
+
+
 }

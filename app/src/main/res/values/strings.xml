@@ -44,5 +44,7 @@
         <item>overall speedup</item>
     </string-array>
     <string name="title_activity_pipelining">Interactive Pipelining</string>
+    <string name="title_activity_arm">ARMActivity</string>
+    <string name="gotoarm_b">C to ARM Compiler</string>
 
 </resources>

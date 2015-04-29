@@ -47,6 +47,10 @@
             android:name=".PipeliningActivity"
             android:label="@string/title_activity_pipelining" >
         </activity>
+        <activity
+            android:name=".ARMActivity"
+            android:label="@string/title_activity_arm" >
+        </activity>
     </application>
 
 </manifest>
