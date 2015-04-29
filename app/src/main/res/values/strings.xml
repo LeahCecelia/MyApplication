@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">My Application</string>
 
-    <string name="increase_in_speed">Enter the factor of partial speedup</string>
-    <string name="fraction_tobe_spedup">Enter the fraction of program to be sped up</string>
+    <string name="increase_in_speed">Enter the factor of partial speedup, S </string>
+    <string name="fraction_tobe_spedup">Enter the fraction of program to be sped up, P</string>
     <string name="button_send">Send</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_MIPSRef">MIPS Reference</string>
     <string name="title_activity_display_message">My Message</string>
 
     <string name="hello_world">Hello world!</string>
@@ -29,4 +30,18 @@
     </string-array>
     <string name="title_activity_cto_mips">CToMIPSActivity</string>
     <string name="title_activity_mips_ref">MIPSRefActivity</string>
+    <string name="pick_value">Pick value to calculate below: </string>
+    <string name="with_para">With Parallelization</string>
+    <string name="wo_para">Without Parallelization</string>
+    <string name="title_activity_parallelized_amdahls">ParallelizedAmdahlsActivity</string>
+    <string name="sn">S(N)</string>
+    <string name="fractionp">(1-P) + (P/N) </string>
+    <string name="increase_in_speed_p">Enter factor of parallelization, N</string>
+    <string name="fraction_tobe_spedup_p">Enter the fraction of program to be parallelized, P</string>
+    <string-array name="values_array_P">
+        <item>amount of parallelization</item>
+        <item>percent of program parallelized</item>
+        <item>overall speedup</item>
+    </string-array>
+
 </resources>

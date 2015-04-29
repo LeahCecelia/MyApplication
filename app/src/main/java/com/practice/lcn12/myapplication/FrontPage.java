@@ -41,7 +41,7 @@ public class FrontPage extends ActionBarActivity {
     }
 
     public void goToAmdahl(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
         startActivity(intent);
     }
 

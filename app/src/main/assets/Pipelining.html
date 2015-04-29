@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="jquery-2.1.3.js"></script>
+    <script>
+    //$(function () {
+        function test(tableid) {
+            $("#"+tableid).append("<tr><td>yo</td></tr>");
+        }
+        
+    
+       // $("pipeline").click(function(){test("pipeline");});
+   // });
+    </script>
+</head>
+
+<body>
+
+    <table id = "pipeline" onclick = 'test("pipeline")'><tr><td>yoooo</td></tr></table>
+
+</body>
+
+</html>

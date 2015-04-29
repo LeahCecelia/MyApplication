@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.practice.lcn12.myapplication" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,10 +36,12 @@
         </activity>
         <activity
             android:name=".MIPSRefActivity"
-            android:label="@string/title_activity_mips_ref">
-
-         </activity>
+            android:label="@string/title_activity_mips_ref" >
+        </activity>
+        <activity
+            android:name=".ParallelizedAmdahlsActivity"
+            android:label="@string/title_activity_parallelized_amdahls" >
+        </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
