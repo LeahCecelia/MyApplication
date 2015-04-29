@@ -2,18 +2,42 @@
 <html>
 
 <head>
+ <link rel="stylesheet" href="jquery-ui/jquery-ui-1.11.4/jquery-ui.css">
     <script src="jquery-2.1.3.js"></script>
+    <script src="jquery-ui/jquery-ui-1.11.4/jquery-ui.js"></script>
     <script>
-        function myFunction() {
-            $("#h01").html("Hello jQuery");
-        }
-        $(document).ready(myFunction);
+        $(function() {
+            $("#mipsAccordion").accordion();
+        });
     </script>
 </head>
 
 <body>
-
-    <h1 id="h01"></h1>
+    <div id = "mipsAccordion">
+        <h3>add $a, $b, $c</h3>
+            <div>
+                <div>The add instruction adds the contests of registers $b and $c, and stores the result into $a</div>
+                <div>Usage example:</div>
+                <div>Actions during IM pipeline stage:</div>
+                <div>Actions during Reg1 stage of pipeline:</div>
+                <div>Actions during ALU stage of pipeline:</div>
+                <div>Actions during DM stage of pipeline:</div>
+                <div>Actions during Reg2 stage of pipeline:</div>
+                <div>Potential pipeline hazards:</div>
+            </div>
+        <h3>sub $a, $b, $c</h3>
+            <div>
+                <div>The sub instruction subtracts the contests of register $c from register $b, and stores the result into $a</div>
+                <div>Usage example:</div>
+                <div>Actions during IM pipeline stage:</div>
+                <div>Actions during Reg1 stage of pipeline:</div>
+                <div>Actions during ALU stage of pipeline:</div>
+                <div>Actions during DM stage of pipeline:</div>
+                <div>Actions during Reg2 stage of pipeline:</div>
+                <div>Potential pipeline hazards:</div>
+            </div>
+            
+    </div>
 
 </body>
 
