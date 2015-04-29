@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">EECS 314 Reference Tool</string>
 
     <string name="increase_in_speed">Enter the factor of partial speedup, S </string>
     <string name="fraction_tobe_spedup">Enter the fraction of program to be sped up, P</string>
