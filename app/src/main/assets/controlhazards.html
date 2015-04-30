@@ -7,11 +7,21 @@
     <script src="pipeline.js"></script>
     <script>       
        $(document).ready(function (){
+            makePipeline("pipeline", 5);
+            makePipeline("pipeline2", 3);
        });
     </script>
 </head>
 
 <body>
+<h1>Control Hazards</h1>
+<p>Control hazards can cause a greater performance loss for the MIPS pipeline than <a href = "datahazards.html">data hazards</a>. When a branch is executed, it may or may not change the PC (program counter) to something other than its current value plus 4. If a branch changes the PC to its target address, it is a taken branch; if it falls through, it is not taken.
+</p>
+<p>
+    The simplest method of dealing with branches is to stall the pipeline as soon as the branch is detected until we reach the MEM stage, which determines the new PC. Where the stall occurs after the instruction is decoded
+
+</p>
+
 
 </body>
 
