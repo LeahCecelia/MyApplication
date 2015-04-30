@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui-1.11.4/jquery-ui.css">
+    <script src="jquery-2.1.3.js"></script>
+    <script src="jquery-ui/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script src="pipeline.js"></script>
+    <script>       
+       $(document).ready(function (){
+            $("#address").dialog({
+                title: "Read from Address",
+                autoOpen: false
+            });
+            $("#adder").dialog({
+                title: "Adder (PC)",
+                autoOpen: false
+            });
+            $("#Memory1").dialog({
+                title: "First memory access",
+                autoOpen: false
+            });
+            $("#Memory2").dialog({
+                title: "Second mem-access",
+                autoOpen: false
+            });
+            $("#IFID").dialog({
+                title: "IF/ID stage state",
+                autoOpen: false
+            });
+            $("#RegFile").dialog({
+                title: "Register Access",
+                autoOpen: false
+            });
+            $("#SignExtend").dialog({
+                title: "SIgn Extend",
+                autoOpen: false
+            });
+            $("#IDEX").dialog({
+                title: "ID/EX stage state",
+                autoOpen: false
+            });
+            $("#MUX1").dialog({
+                title: "Multiplexer",
+                autoOpen: false
+            });
+            $("#MUX2").dialog({
+                title: "Multiplexer",
+                autoOpen: false
+            });
+            $("#ALU").dialog({
+                title: "ALU",
+                autoOpen: false
+            });
+            $("#EXMEM").dialog({
+                title: "EX/MEM stage state",
+                autoOpen: false
+            });
+            $("#MEMWB").dialog({
+                title: "MEM/WB stage state",
+                autoOpen: false
+            });
+            $("#MUX4").dialog({
+                title: "Multiplexer",
+                autoOpen: false
+            });
+            $("#ZERO").dialog({
+                title: "Zero check",
+                autoOpen: false
+            });
+            $("#MUX3").dialog({
+                title: "Multiplexer",
+                autoOpen: false
+            });
+       });
+    </script>
+</head>
+<body>
+<div id = "address">1Blablabla</div>
+<div id = "adder">B2lablabla</div>
+<div id = "Memory1">Blab3labla</div>
+<div id = "IFID">B4lablabla</div>
+<div id = "RegFile">Blabla5bla</div>
+<div id = "SignExtend">Bl6ablabla</div>
+<div id = "IDEX">Blab7labla</div>
+<div id = "MUX1">Blab8labla</div>
+<div id = "MUX2">Blabl9abla</div>
+<div id = "ZERO">Blablab10la</div>
+<div id = "ALU">Blabla11bla</div>
+<div id = "EXMEM">Blab12labla</div>
+<div id = "MUX3">Blablab13la</div>
+<div id = "Memory2">Bla14blabla</div>
+<div id = "MEMWB">Bla15blabla</div>
+<div id = "MUX4">Bla16blabla</div>
+
+<h2>A more complex view of the MIPS Pipeline</h2>
+This interactive graphic explains the MIPS pipeline process.  This graphic does not take into acount pipeline hazards.  Click <a href="MIPSControlPath_hazards.html"> here </a> for a graphic that takes pipeline hazards into account.<br>
+<img src="SimplePipeline_MIPS.png" alt="" usemap="#Map"/>
+<map name="Map" id="Map">
+    <area alt="" title="" shape="rect" coords="664,1287" />
+    <area alt="" title="" href="javascript:$('#address').dialog('open')" shape="rect" coords="44,338,69,471" />
+    <area alt="" title="" href="javascript:$('#adder').dialog('open')" shape="poly" coords="120,146,118,275,183,232,183,186" />
+    <area alt="" title="" href="javascript:$('#Memory1').dialog('open')" shape="rect" coords="117,339,184,472" />
+    <area alt="" title="" href="javascript:$('#IFID').dialog('open')" shape="rect" coords="208,101,233,538" />
+    <area alt="" title="" href="javascript:$('#RegFile').dialog('open')" shape="rect" coords="316,141,382,275" />
+    <area alt="" title="" href="javascript:$('#SignExtend').dialog('open')" shape="poly" coords="350,340,333,349,321,372,317,404,321,432,327,454,340,470,350,471,363,465,371,447,382,432,381,416,379,378,369,352" />
+    <area alt="" title="" href="javascript:$('#IDEX').dialog('open')" shape="rect" coords="405,101,431,537" />
+    <area alt="" title="" href="javascript:$('#MUX1').dialog('open')" shape="poly" coords="474,250,466,268,464,289,468,311,472,326,476,330,483,319,487,299,489,276,483,258" />
+    <area alt="" title="" href="javascript:$('#MUX2').dialog('open')" shape="poly" coords="475,348,468,363,465,382,466,402,470,418,475,428,483,425,488,395,486,363" />
+    <area alt="" title="" href="javascript:$('#ALU').dialog('open')" shape="poly" coords="514,277,513,404,579,362,578,315" />
+    <area alt="" title="" href="javascript:$('#ZERO').dialog('open')" shape="rect" coords="527,191,579,242" />
+    <area alt="" title="" href="javascript:$('#EXMEM').dialog('open')" shape="rect" coords="601,102,630,538" />
+    <area alt="" title="" href="javascript:$('#MUX3').dialog('open')"" shape="poly" coords="715,120,702,147,702,167,707,187,714,199,721,204,729,186,733,158,727,129" />
+    <area alt="" title="" href="javascript:$('#Memory2').dialog('open')" shape="rect" coords="709,273,775,405" />
+    <area alt="" title="" href="javascript:$('#MEMWB').dialog('open')" shape="rect" coords="799,101,825,537" />
+    <area alt="" title="" href="javascript:$('#MUX4').dialog('open')" shape="poly" coords="857,358,853,375,851,391,850,416,857,431,864,438,871,427,875,403,874,379,869,360" />
+    
+</map>
+
+</body>
+</html>
