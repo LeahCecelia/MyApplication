@@ -7,8 +7,11 @@
     <script src="pipeline.js"></script>
     <script>       
        $(document).ready(function (){
-            makePipeline("pipeline", 5);
+            makePipeline("pipeline", 2);
+            makePipeline("pipeline5", 2);
             makePipeline("pipeline2", 2);
+            makePipeline("pipeline3", 5, 1, 3);
+            makePipeline("pipeline4", 4, 1, 2);
        });
     </script>
 </head>
@@ -23,37 +26,44 @@
 <a href = "MIPSControlPath.html#startText">Pipeline control path: No hazard control</a><br>
 <a href = "MIPSControlPath_hazards.html#startText">Pipeline control path: Hazard control</a><br>
 <h2 id = "startText">Data Hazards</h1>
-    <p>There are several main solutions and algorithms used to resolve data hazards:
-    </p>
-<p>data forwarding is an optimization in pipelined CPUs to limit performance deficits which occur due to pipeline stalls. A data hazard can lead to a pipeline stall when the current operation has to wait for the results of an earlier operation which has not yet finished.
-</p>
-
-<table><tr><td>add R1, R2, R3, </td><td rowspan = "5">
-    <table id = "pipeline" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', 4, 0, 4, 3)"></table>
-</td></tr>
-    <tr><td>sub R4, R5, R1,</td></tr>
-    <tr><td>and R6, R1, R7, Loop</td></tr>
-    <tr><td>or R8, R1, R9,</td></tr>
-    <tr><td>xor R10,R1,R11 Loop</td></tr>
-    </table>
-<p>
-    All the instructions after the ADD use the result of the ADD instruction (in R1). The ADD instruction writes the value of R1 in the WB stage (shown black), and the SUB instruction reads the value during ID stage (IDsub).
-</p>
-
-    <p>The AND instruction is also affected by this data hazard. The write of R1 does not complete until the end of cycle 5 (shown black). Thus, the AND instruction that reads the registers during cycle 4 (IDand) will receive the wrong result.</p>
-
-    <p>The OR instruction can be made to operate without incurring a hazard by a simple implementation technique. The technique is to perform register file reads in the second half of the cycle, and writes in the first half. Because both WB  for ADD and IDor for OR are performed in one cycle 5, the write to register file by ADD will perform in the first half of the cycle, and the read of registers by OR will perform in the second half of the cycle.</p>
-
-    <p>The XOR instruction operates properly, because its register read occur in cycle 6 after the register write by ADD.</p>
-
-    <p>another example would be:</p>
-
-    <table><tr><td>lw $s1, 4($sp) </td><td rowspan = "5">
+Data Hazards occur when there is an attempt to use data before it is ready.  For instance, consider the following example:<br>
+<table><tr><td>lw $s1, 4($sp) </td><td rowspan = "5">
         <table id = "pipeline2" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline2', 4, 0, 2, 1)"></table>
     </td></tr>
         <tr><td>add $s0, $s1, $s2</td></tr>
 
     </table><br>
+The lw instruction does not save the value at the given memory address (4 + $sp) into register $s1 until the last cycle of the instruction.  However, the next add instruction tries to read $s1 in its second cycle, which occurs before the register is written to.  To fix this, we can stall the pipeline:<br>
+<table><tr><td>lw $s1, 4($sp) </td><td rowspan = "5">
+        <table id = "pipeline3" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline3', 4, 0, 5, 4)"></table>
+    </td></tr>
+        <tr><td>add $s0, $s1, $s2</td></tr>
+
+    </table><br>
+Now, there is no conflict because the register is written to before it is read from.  However, this caused 3 stalls!  It is almost as bad as executing one instruction at a time.  We can minimize stalls using a technique called <strong>data forwarding</strong>.  Notice how the data from memory is actually available after the DM stage, before being written to the register.  We could forward this data to the next instruction, so only two stalls are required:<br>
+<table><tr><td>lw $s1, 4($sp) </td><td rowspan = "5">
+        <table id = "pipeline4" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline4', 3, 0, 4, 3)"></table>
+    </td></tr>
+        <tr><td>add $s0, $s1, $s2</td></tr>
+
+    </table><br>
+    To see how data forwarding is implemented in the pipeline control path, see the forwarding units in the <a href = "MIPSControlPath_hazards.html#startText"/>MIPS Control Path</a>.<br>
+    
+Here is an example where data forwarding actually removes all stalls:<br>
+
+<table><tr><td>add R1, R2, R3 </td><td rowspan = "5">
+    <table id = "pipeline" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', 4, 0, 2, 1)"></table>
+</td></tr>
+    <tr><td>sub R4, R5, R1</td></tr>
+    </table>
+
+Notice that R1 is updated, but the sub instruction tries to read from R1 before it is updated.  However, the new value of R1 is technically available after the first use of the ALU, so we can use data forwarding to move this value to the next use of the ALU, incuring zero stalls:<br>
+
+    <table><tr><td>add R1, R2, R3 </td><td rowspan = "5">
+    <table id = "pipeline5" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline5', 2, 0, 3, 1)"></table>
+</td></tr>
+    <tr><td>sub R4, R5, R1</td></tr>
+    </table>
 
     <ul>
         <li><a href = "datahazards.html">Data Hazards</a></li>
