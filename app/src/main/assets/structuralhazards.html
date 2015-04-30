@@ -7,11 +7,23 @@
     <script src="pipeline.js"></script>
     <script>       
        $(document).ready(function (){
+            makePipeline("pipeline", 2);
+            makePipeline("pipeline2", 3);
        });
     </script>
 </head>
 
 <body>
+<h1> Structural Hazard</h1>
+<p>When a machine is pipelined, the overlapped execution of instructions requires pipelining of functional units and duplication of resources to allow all posible combinations of instructions in the pipeline.
+If some combination of instructions cannot be accommodated because of a resource conflict, the machine is said to have a structural hazard.
+</p>
+<p>Common instances of structural hazards arise when:</p>
+<ul>
+    <li>Some functional unit is not fully pipelined. Then a sequence of instructions using that unpipelined unit cannot proceed at the rate of one per clock cycle</li>
+    <li>Some resource has not been duplicated enough to allow all combinations of instructions in the pipeline to execute.    </li>
+</ul>
+
 
 </body>
 
