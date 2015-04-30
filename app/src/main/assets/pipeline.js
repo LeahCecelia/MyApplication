@@ -1,8 +1,13 @@
-function makePipeline(tableid, numRows) {  
+function makePipeline(tableid, numRows, stallLoc, numStalls) {  
             var i;
             for(i = 0; i < numRows; i++){
                 var start = getStart(i, numRows, tableid);
-                var middle = "<td class = '"+tableid+"_"+(i)+" "+tableid+"_row_"+i+"'><img src = 'IM.png' class = 'InstFetchImg'></td><td class = '"+tableid+"_"+(i+1)+" "+tableid+"_row_"+i+"'><img src = 'Reg1.png' class = 'Reg1Img'></td><td class = '"+tableid+"_"+(i+2)+" "+tableid+"_row_"+i+"'><img src = 'ALU.png' class = 'ALUImg'></td><td class = '"+tableid+"_"+(i+3)+" "+tableid+"_row_"+i+"'><img src = 'DM.png' class = 'DMImg'></td><td class = '"+tableid+"_"+(i+4)+" "+tableid+"_row_"+i+"'><img src = 'Reg2.png' class = 'Reg2Img'></td>";
+                var middle = "";
+                if(i >= stallLoc && i < stallLoc + numStalls){
+                    middle += "<td height = '50px'>S</td><td>T</td><td>A</td><td>L</td><td>L</td>";
+                }else{
+                    middle += "<td class = '"+tableid+"_"+(i)+" "+tableid+"_row_"+i+"'><img src = 'IM.png' class = 'InstFetchImg'></td><td class = '"+tableid+"_"+(i+1)+" "+tableid+"_row_"+i+"'><img src = 'Reg1.png' class = 'Reg1Img'></td><td class = '"+tableid+"_"+(i+2)+" "+tableid+"_row_"+i+"'><img src = 'ALU.png' class = 'ALUImg'></td><td class = '"+tableid+"_"+(i+3)+" "+tableid+"_row_"+i+"'><img src = 'DM.png' class = 'DMImg'></td><td class = '"+tableid+"_"+(i+4)+" "+tableid+"_row_"+i+"'><img src = 'Reg2.png' class = 'Reg2Img'></td>";
+                }
                 var end = getEnd(i, numRows);
                 $("#"+tableid).append(start+middle+end);
             }
