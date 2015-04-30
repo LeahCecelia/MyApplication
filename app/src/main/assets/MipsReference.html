@@ -521,6 +521,18 @@
                 <div><span class = "pipelineLabel">Instruction Format:</span>
                     Pseudo-instruction
                 </div>
+                
+                <div><span class = "pipelineLabel">Psuedo-instruction translation:</span><br>
+                <span class = "code">
+                <table>
+                <tr>
+                <td valign = "top">li $rd, 0xUUUULLLL --></td>
+                <td>lui $rd, 0xUUUU<br>
+                    ori $rd, 0xLLLL</td>
+                </tr>
+                </table>
+                </span>
+                </div>
             </div>
 			<h3><i>move $rd, $rs</i></h3>
             <div>
@@ -533,6 +545,17 @@
                 </div><br>
                 <div><span class = "pipelineLabel">Instruction Format:</span>
                     Pseudo-instruction
+                </div>
+                
+                <div><span class = "pipelineLabel">Psuedo-instruction translation:</span><br>
+                <span class = "code">
+                <table>
+                <tr>
+                <td>move $rd, $rs --></td>
+                <td>add $rd, $rs, $zero</td>
+                </tr>
+                </table>
+                </span>
                 </div>
             </div>
     </div>
