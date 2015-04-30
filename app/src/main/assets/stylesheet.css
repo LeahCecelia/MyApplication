@@ -30,3 +30,10 @@
 .hazard {
     border: 3px solid red;
 }
+
+.code{
+    font-family: 'droid', sans-serif;
+}
+
+.pipelineLabel{
+}
