@@ -8,6 +8,15 @@
     <script src="jquery-2.1.3.js"></script>
     <script src="jquery-ui/jquery-ui-1.11.4/jquery-ui.js"></script>
     <script>
+        function search(){
+            var mipsInst = $("#searchText").val();
+            if($("#"+mipsInst)[0]){
+                window.location.hash = '#'+mipsInst;
+            }else{
+                $("#searchText").val("Instruction not found");
+            }
+        }
+    
         $(function() {
             $("#mipsAccordion").accordion();
         });
@@ -15,8 +24,9 @@
 </head>
 
 <body>
+<input type="text" value = "Enter a MIPS instruction" id="searchText"/><button id = "searchButton" type="button" onclick="search()"/>Search</button><br>
     <div id = "mipsAccordion">
-        <h3>add $rd, $rs, $rt</h3>
+        <h3 id = "add">add $rd, $rs, $rt</h3>
             <div>
                 <div>The add instruction adds the contents of registers $rs and $rt, and stores the result into $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -29,7 +39,7 @@
                     R-Type
                 </div>
             </div>
-       <h3>addi $rt, $rs, imm</h3>
+       <h3 id = "addi">addi $rt, $rs, imm</h3>
             <div>
                 <div>The add immediate instruction adds the contents of register $rs and a sign-extended immediate, and stores the result into $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -42,7 +52,7 @@
                     I-Type
                 </div>
             </div>
-            <h3>addiu $rt, $rs, imm</h3>
+            <h3 id = "addiu">addiu $rt, $rs, imm</h3>
             <div>
                 <div>The add immediate unsigned instruction adds the contents of register $rs and as sign-extended unsigned immediate, and stores the result into $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -55,7 +65,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>addu $rd, $rs, $rt</h3>
+			<h3 id = "addu">addu $rd, $rs, $rt</h3>
             <div>
                 <div>The add unsigned instruction adds the contents of registers $rs and $rt, and stores the result into $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -68,7 +78,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>and $rd, $rs, $rt</h3>
+			<h3 id = "and">and $rd, $rs, $rt</h3>
             <div>
                 <div>The and instruction takes the bitwise and of the contents of registers $rs and $rt, and stores the result into $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -81,7 +91,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>andi $rt, $rs, imm</h3>
+			<h3 id = "andi">andi $rt, $rs, imm</h3>
             <div>
                 <div>The andi instruction bitwise ands the contents of register $rs and an immediate, and stores the result into $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -94,7 +104,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>beq $rs, $rt, offset</h3>
+			<h3 id = "beq">beq $rs, $rt, offset</h3>
             <div>
                 <div>The branch on equal instruction compares the contents of registers $rs and $rt and branches if they are equal</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -108,7 +118,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>bne $rs, $rt, offset</h3>
+			<h3 id = "bne">bne $rs, $rt, offset</h3>
             <div>
                 <div>The branch on equal instruction compares the contents of registers $rs and $rt and branches if they are not equal</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -122,7 +132,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>j target</h3>
+			<h3 id = "j">j target</h3>
             <div>
                 <div>The jump instruction jumps to the target address</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -135,7 +145,7 @@
                     J-Type
                 </div>
             </div>
-			<h3>jal target</h3>
+			<h3 id = "jal">jal target</h3>
             <div>
                 <div>The jump and link instruction jumps to the target address and stores the return address into $31</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -148,7 +158,7 @@
                     J-Type
                 </div>
             </div>
-			<h3>jr $rs</h3>
+			<h3 id = "jr">jr $rs</h3>
             <div>
                 <div>The jump register instruction jumps to the address stored in register $rs</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -161,7 +171,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>lbu $rt, offset($rs)</h3>
+			<h3 id = "lbu">lbu $rt, offset($rs)</h3>
             <div>
                 <div>The load byte unsigned instruction loads the specified byte into $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -174,7 +184,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>lhu $rt, offset($rs)</h3>
+			<h3 id = "lhu">lhu $rt, offset($rs)</h3>
             <div>
                 <div>The load half word unsigned instruction loads the specified half word into $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -187,7 +197,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>ll $rt, offset($rs)</h3>
+			<h3 id = "ll">ll $rt, offset($rs)</h3>
             <div>
                 <div>The load linked instruction loads the specified word into $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -200,7 +210,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>lui $rt, imm</h3>
+			<h3 id = "lui">lui $rt, imm</h3>
             <div>
                 <div>The load upper immediate instruction loads the immediate into the upper sixteen bits of $rt and loads zeroes into the lower sixteen bits</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -213,7 +223,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>lw $rt, offset($rs)</h3>
+			<h3 id = "lw">lw $rt, offset($rs)</h3>
             <div>
                 <div>The load word instruction loads the specified word into $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -226,7 +236,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>nor $rd, $rs, $rt</h3>
+			<h3 id = "nor">nor $rd, $rs, $rt</h3>
             <div>
                 <div>The nor instruction bitwise nors the contents of registers $rs and $rt and stores the result in $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -239,7 +249,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>or $rd, $rs, $rt</h3>
+			<h3 id = "or">or $rd, $rs, $rt</h3>
             <div>
                 <div>The or instruction bitwise ors the contents of registers $rs and $rt and stores the result in $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -252,7 +262,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>ori $rt, $rs, imm</h3>
+			<h3 id = "ori">ori $rt, $rs, imm</h3>
             <div>
                 <div>The or immediate instruction bitwise nors the contents of register $rs and an immediate and stores the result in $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -265,7 +275,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>slt $rd, $rs, $rt</h3>
+			<h3 id = "slt">slt $rd, $rs, $rt</h3>
             <div>
                 <div>The set less than instruction compares the contents of registers $rs and $rt and sets $rd to one if $rs is less than $rt and zero if it is not</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -278,7 +288,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>slti $rt, $rs, imm</h3>
+			<h3 id = "slti">slti $rt, $rs, imm</h3>
             <div>
                 <div>The set less than immediate instruction compares the contents of register $rs and an immediate and sets $rt to one if $rs is less than the immediate and zero if it is not</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -291,7 +301,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>sltiu $rt, $rs, imm</h3>
+			<h3 id = "sltiu">sltiu $rt, $rs, imm</h3>
             <div>
                 <div>The set less than immediate unsigned instruction compares the contents of register $rs and an unsigned immediate and sets $rt to one if $rs is less than the immediate and zero if it is not</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -304,7 +314,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>sltu $rd, $rs, $rt</h3>
+			<h3 id = "sltu">sltu $rd, $rs, $rt</h3>
             <div>
                 <div>The set less than unsigned instruction compares the contents of registers $rs and $rt and sets $rd to one if $rs is less than $rt and zero if it is not</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -317,7 +327,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>sll $rd, $rt, shamt</h3>
+			<h3 id = "sll">sll $rd, $rt, shamt</h3>
             <div>
                 <div>The shift left logical instruction shifts the contents of $rt left by the shift amount and stores the result in $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -330,7 +340,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>srl $rd, $rt, shamt</h3>
+			<h3 id = "srl">srl $rd, $rt, shamt</h3>
             <div>
                 <div>The shift right logical instruction shifts the contents of $rt right by the shift amount and stores the result in $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -343,7 +353,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>sb $rt, offset($rs)</h3>
+			<h3 id = "sb">sb $rt, offset($rs)</h3>
             <div>
                 <div>The store byte instruction stores the specified byte in $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -356,7 +366,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>sh $rt, offset($rs)</h3>
+			<h3 id = "sh">sh $rt, offset($rs)</h3>
             <div>
                 <div>The store halfword instruction stores the specified halfword in $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -369,7 +379,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>sw $rt, offset($rs)</h3>
+			<h3 id = "sw">sw $rt, offset($rs)</h3>
             <div>
                 <div>The store word instruction stores the specified word in $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -382,7 +392,7 @@
                     I-Type
                 </div>
             </div>
-			<h3>sub $rd, $rs, $rt</h3>
+			<h3 id = "sub">sub $rd, $rs, $rt</h3>
             <div>
                 <div>The subtract instruction subtracts the contents of $rt from $rs and stores the result in $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -395,7 +405,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>subu $rd, $rs, $rt</h3>
+			<h3 id = "subu">subu $rd, $rs, $rt</h3>
             <div>
                 <div>The subtract unsigned instruction subtracts the contents of $rt from $rs and stores the result in $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -408,7 +418,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>mfhi $rd</h3>
+			<h3 id = "mfhi">mfhi $rd</h3>
             <div>
                 <div>The move from hi instruction moves the contents of register Hi to $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -421,7 +431,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>mflo $rd</h3>
+			<h3 id = "mflo">mflo $rd</h3>
             <div>
                 <div>The move from lo instruction moves the contents of register Lo to $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -434,7 +444,7 @@
                     R-Type
                 </div>
             </div>
-			<h3>mult $rs, $rt</h3>
+			<h3 id = "mult">mult $rs, $rt</h3>
             <div>
                 <div>The multiply instruction multiplies the contents of registers $rs and $rt and stores the 64-bit result in registers Hi and Lo</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -447,7 +457,7 @@
                     R-Type
                 </div>
             </div>
-			<h3><i>blt $rt, $rs, Label</i></h3>
+			<h3 id = "blt"><i>blt $rt, $rs, Label</i></h3>
             <div>
                 <div>The branch less than instruction compares the two registers and branches if $rs is less than $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -463,7 +473,7 @@
                     Pseudo-instruction
                 </div>
             </div>
-			<h3><i>bgt $rt, $rs, Label</i></h3>
+			<h3 id = "bgt"><i>bgt $rt, $rs, Label</i></h3>
             <div>
                 <div>The branch greater than instruction compares the two registers and branches if $rs is greater than $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -479,7 +489,7 @@
                     Pseudo-instruction
                 </div>
             </div>
-			<h3><i>ble $rt, $rs, Label</i></h3>
+			<h3 id = "ble"><i>ble $rt, $rs, Label</i></h3>
             <div>
                 <div>The branch less than or equal instruction compares the two registers and branches if $rs is less than or equal to $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -495,7 +505,7 @@
                     Pseudo-instruction
                 </div>
             </div>
-			<h3><i>bge $rt, $rs, Label</i></h3>
+			<h3 id = "bge"><i>bge $rt, $rs, Label</i></h3>
             <div>
                 <div>The branch greater than or equal instruction compares the two registers and branches if $rs is greater than or equal to $rt</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -511,7 +521,7 @@
                     Pseudo-instruction
                 </div>
             </div>
-			<h3><i>li $rd, imm</i></h3>
+			<h3 id = "li"><i>li $rd, imm</i></h3>
             <div>
                 <div>The load immediate instruction loads the immediate into $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
@@ -536,7 +546,7 @@
                 </span>
                 </div>
             </div>
-			<h3><i>move $rd, $rs</i></h3>
+			<h3 id = "move"><i>move $rd, $rs</i></h3>
             <div>
                 <div>The move instruction moves the contents of $rs into $rd</div><br>
                 <div><span class = "pipelineLabel">Operation:</span>
