@@ -41,7 +41,7 @@
 You only have 1 smartphone to find the recipes, and you can only fit one set of ingredients on the table at the same time.  Also, each step takes 5 minutes.<br>
 If you were alone, you could do one action at a time, and it would take you 20 minutes to make each salad. But you have friends!  You can have one friend do each action. It would still take 20 minutes to make a salad from start to finish, but once you made four salads, you would be finishing a salad every 5 minutes, and the overall time to make all the salads would be significantly less than 20 minutes per salad.<br><br>
 This is <em>exactly</em> how pipelining works. Finding and reading a recipe is analogous to fetching and decoding an instruction (IM),  retrieving the ingredients is analogous to reading registers (Reg1), mixing the ingredients is analogous to ALU operations, and putting back the ingredients and storing the salad is analogous to memory access (DM).<br><br>
- Consider the following execution of 3 instructions, where time moves from left to write: <br>
+ Consider the following execution of 3 instructions, where time moves from left to write: (Tap to move along animation)<br>
  <table><tr><td>add $t0, $t1, $t2</td><td rowspan = "3">
     <table id = "pipeline" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', -1, -1, -1, -1)"></table>
     </td></tr>
@@ -54,7 +54,7 @@ This is <em>exactly</em> how pipelining works. Finding and reading a recipe is a
  <h2>Can this be hazardous?</h2>
  But what would happen if, while salad making, more than one recipe needed the same ingredient.  What if your friends could not communicate with each other, so when one of them tries to retrieve the shared ingredient and cannot find it, they will keep looking in the cupboard until the ingredient is returned to the cupboard.  It's going to be 10 minutes until the shared ingredient is returned to the cupboard! Thank goodness you can communicate with your friends!<br><br>
  
- But without adding many extra parts, the stages of the pipeline cannot communicate with each other like you and your friends can.  Consider the following set of instructions:<br>
+ But without adding many extra parts, the stages of the pipeline cannot communicate with each other like you and your friends can.  Consider the following set of instructions: (Tap to move along animation)<br>
  <table><tr><td>add $t0, $t0, $t2</td><td rowspan = "3">
     <table id = "pipeline2" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline2', 3, 0, 2, 1)"></table>
     </td></tr>
