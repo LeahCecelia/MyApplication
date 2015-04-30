@@ -26,15 +26,11 @@
 <a href = "MIPSControlPath_hazards.html#startText">Pipeline control path: Hazard control</a><br>
 <h2 id = "startText">Structural Hazards</h1>
 
-<p>When a machine is pipelined, the overlapped execution of instructions requires pipelining of functional units and duplication of resources to allow all posible combinations of instructions in the pipeline.
+<p>When a machine is pipelined, the overlapped execution of instructions requires duplication of resources accessed by these instruction stages to allow all possible combinations of instructions in the pipeline.
 If some combination of instructions cannot be accommodated because of a resource conflict, the machine is said to have a structural hazard.
 </p>
-<p>Common instances of structural hazards arise when:</p>
-<ul>
-    <li>Some functional unit is not fully pipelined. Then a sequence of instructions using that unpipelined unit cannot proceed at the rate of one per clock cycle</li>
-    <li>Some resource has not been duplicated enough to allow all combinations of instructions in the pipeline to execute.    </li>
-</ul>
-
+<p>Common instances of structural hazards arise when some resource has not been duplicated enough to allow all combinations of instructions in the pipeline to execute.</p>
+<p>Below is an example where multiple instructions try to use the memory during the same cycle: </p>
 
     <table><tr><td>load </td><td rowspan = "5">
         <table id = "pipeline" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', 3, 0, 3, 3)"></table>
@@ -45,7 +41,7 @@ If some combination of instructions cannot be accommodated because of a resource
 
     </table>
     <p>
-        The above is wrong so we will fix this doing the following
+        The above causes a hazard so we will fix this by stalling the pipeline for a cycle
     </p>
     <table><tr><td>load </td><td rowspan = "5">
         <table id = "pipeline2" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline2', 3, 0, 4, 4)"></table>
@@ -56,6 +52,8 @@ If some combination of instructions cannot be accommodated because of a resource
         <tr><td>instr 3</td></tr>
     </table>
 
+    <p>Stalling reduces the CPI, so by having multiple instances of the memory resource, both instructions can access memory in the same cycle
+    as seen in the MIPS control path with hazards.</p>
 
 </body>
 
