@@ -14,6 +14,15 @@
 </head>
 
 <body>
+
+<a href = "Pipelining.html#startText">Instruction Execution in Pipeline</a><br>
+<a href = "Pipelining2.html#startText">Parallel Execution in Pipeline</a><br>
+<a href = "datahazards.html#startText">Data Hazards</a><br>
+<a href = "controlhazards.html#startText">Control Hazards</a><br>
+<a href = "structuralhazards.html#startText">Structural Hazards</a><br>
+<a href = "MIPSControlPath.html#startText">Pipeline control path: No hazard control</a><br>
+<a href = "MIPSControlPath_hazards.html#startText">Pipeline control path: Hazard control</a><br>
+<h2 id = "startText">Data Hazards</h1>
     <p>There are several main solutions and algorithms used to resolve data hazards:
     </p>
 <p>data forwarding is an optimization in pipelined CPUs to limit performance deficits which occur due to pipeline stalls. A data hazard can lead to a pipeline stall when the current operation has to wait for the results of an earlier operation which has not yet finished.
@@ -26,6 +35,7 @@
     <tr><td>and R6, R1, R7, Loop</td></tr>
     <tr><td>or R8, R1, R9,</td></tr>
     <tr><td>xor R10,R1,R11 Loop</td></tr>
+    </table>
 <p>
     All the instructions after the ADD use the result of the ADD instruction (in R1). The ADD instruction writes the value of R1 in the WB stage (shown black), and the SUB instruction reads the value during ID stage (IDsub).
 </p>
@@ -39,7 +49,7 @@
     <p>another example would be:</p>
 
     <table><tr><td>lw $s1, 4($sp) </td><td rowspan = "5">
-        <table id = "pipeline2" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', 4, 0, 2, 1)"></table>
+        <table id = "pipeline2" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline2', 4, 0, 2, 1)"></table>
     </td></tr>
         <tr><td>add $s0, $s1, $s2</td></tr>
 
