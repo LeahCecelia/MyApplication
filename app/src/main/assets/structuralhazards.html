@@ -7,11 +7,16 @@
     <script src="pipeline.js"></script>
     <script>       
        $(document).ready(function (){
+            makePipeline("pipeline", 4,0,0);
+            makePipeline("pipeline2", 5,3,1);
        });
     </script>
 </head>
 
 <body>
+
+<h1> Structural Hazard</h1>
+
 <a href = "Pipelining.html#startText">Instruction Execution in Pipeline</a><br>
 <a href = "Pipelining2.html#startText">Parallel Execution in Pipeline</a><br>
 <a href = "datahazards.html#startText">Data Hazards</a><br>
@@ -20,6 +25,7 @@
 <a href = "MIPSControlPath.html#startText">Pipeline control path: No hazard control</a><br>
 <a href = "MIPSControlPath_hazards.html#startText">Pipeline control path: Hazard control</a><br>
 <h2 id = "startText">Structural Hazards</h1>
+
 <p>When a machine is pipelined, the overlapped execution of instructions requires pipelining of functional units and duplication of resources to allow all posible combinations of instructions in the pipeline.
 If some combination of instructions cannot be accommodated because of a resource conflict, the machine is said to have a structural hazard.
 </p>
@@ -29,6 +35,26 @@ If some combination of instructions cannot be accommodated because of a resource
     <li>Some resource has not been duplicated enough to allow all combinations of instructions in the pipeline to execute.    </li>
 </ul>
 
+
+    <table><tr><td>load </td><td rowspan = "5">
+        <table id = "pipeline" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', 3, 0, 3, 3)"></table>
+    </td></tr>
+        <tr><td>instr 1</td></tr>
+        <tr><td>instr 2</td></tr>
+        <tr><td>instr 3</td></tr>
+
+    </table>
+    <p>
+        The above is wrong so we will fix this doing the following
+    </p>
+    <table><tr><td>load </td><td rowspan = "5">
+        <table id = "pipeline2" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline2', 3, 0, 4, 3)"></table>
+    </td></tr>
+        <tr><td>instr 1</td></tr>
+        <tr><td>instr 2</td></tr>
+        <tr><td>stall</td></tr>
+        <tr><td>instr 3</td></tr>
+    </table>
 
 </body>
 
