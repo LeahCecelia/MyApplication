@@ -128,7 +128,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/one"
             android:id="@+id/textView4P"
-            android:layout_marginLeft="140dp"
+            android:layout_marginLeft="200dp"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="0dp"
             android:layout_marginRight="0dp" />
@@ -148,7 +148,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/sn"
-                android:id="@+id/textView2P" />
+                android:id="@+id/textView2P"
+                android:layout_marginLeft="60dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -163,7 +164,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/line"
                 android:id="@+id/textView3"
-                android:layout_marginLeft="30dp" />
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="60dp" />
         </LinearLayout>
     </TableRow>
 
@@ -182,7 +184,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/fractionp"
                 android:id="@+id/textView5P"
-                android:layout_marginLeft="90dp" />
+                android:layout_marginLeft="150dp" />
         </LinearLayout>
     </TableRow>
 

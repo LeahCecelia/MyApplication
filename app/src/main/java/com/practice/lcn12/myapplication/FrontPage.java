@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 
-public class FrontPage extends ActionBarActivity {
+public class FrontPage extends ActionBarActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
