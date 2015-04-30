@@ -9,42 +9,77 @@
     <script src="pipeline.js"></script>
     <script>       
        $(document).ready(function (){
+            $("#HazardUnit").dialog({
+                title: "Hazard Unit",
+                autoOpen: false
+            });
+            $("#Control").dialog({
+                title: "Control",
+                autoOpen: false
+            });
+            $("#ForwardUnit1").dialog({
+                title: "Forward Unit 1",
+                autoOpen: false
+            });
+            $("#ForwardUnit2").dialog({
+                title: "Forward Unit 2",
+                autoOpen: false
+            });
+            $("#Branch").dialog({
+                title: "Branch",
+                autoOpen: false
+            });
+            $("#IFFlush").dialog({
+                title: "IF Flush",
+                autoOpen: false
+            });
+            $("#ALUcntrl").dialog({
+                title: "ALU control",
+                autoOpen: false
+            });
+            $("#IDEX").dialog({
+                title: "ID/EX",
+                autoOpen: false
+            });
+            $("#EXMEM").dialog({
+                title: "EX/MEM",
+                autoOpen: false
+            });
+            $("#MEMWB").dialog({
+                title: "MEM/WB",
+                autoOpen: false
+            });
        });
     </script>
     
 </head>
 
 <body>
-    <img src="HazardControl.png" alt="" usemap="#Map" />
+
+<div id="HazardUnit">Hazard Unit</div>
+<div id="Control">Hazard Unit</div>
+<div id="ForwardUnit1">Hazard Unit</div>
+<div id="ForwardUnit2">Hazard Unit</div>
+<div id="Branch">Hazard Unit</div>
+<div id="IFFlush">Hazard Unit</div>
+<div id="ALUcntrl">Hazard Unit</div>
+<div id="IDEX">Hazard Unit</div>
+<div id="EXMEM">Hazard Unit</div>
+<div id="MEMWB">Hazard Unit</div>
+
+<img src="HazardControl.png" alt="" usemap="#Map" />
 <map name="Map" id="Map">
-    <area alt="" title="" href="javascript:" shape="rect" coords="664,1287" />
-    <area alt="" title="" href="#" shape="rect" coords="44,338,69,471" />
-    <area alt="" title="" href="#" shape="poly" coords="120,146,118,275,183,232,183,186" />
-    <area alt="" title="" href="#" shape="rect" coords="117,339,184,472" />
-    <area alt="" title="" href="#" shape="rect" coords="208,101,233,538" />
-    <area alt="" title="" href="#" shape="rect" coords="316,141,382,275" />
-    <area alt="" title="" href="#" shape="poly" coords="350,340,333,349,321,372,317,404,321,432,327,454,340,470,350,471,363,465,371,447,382,432,381,416,379,378,369,352" />
-    <area alt="" title="" href="#" shape="rect" coords="405,101,431,537" />
-    <area alt="" title="" href="#" shape="poly" coords="474,250,466,268,464,289,468,311,472,326,476,330,483,319,487,299,489,276,483,258" />
-    <area alt="" title="" href="#" shape="poly" coords="475,348,468,363,465,382,466,402,470,418,475,428,483,425,488,395,486,363" />
-    <area alt="" title="" href="#" shape="poly" coords="514,277,513,404,579,362,578,315" />
-    <area alt="" title="" href="#" shape="rect" coords="527,191,579,242" />
-    <area alt="" title="" href="#" shape="rect" coords="601,102,630,538" />
-    <area alt="" title="" href="#" shape="poly" coords="715,120,702,147,702,167,707,187,714,199,721,204,729,186,733,158,727,129" />
-    <area alt="" title="" href="#" shape="rect" coords="709,273,775,405" />
-    <area alt="" title="" href="#" shape="rect" coords="799,101,825,537" />
-    <area alt="" title="" href="#" shape="poly" coords="857,358,853,375,851,391,850,416,857,431,864,438,871,427,875,403,874,379,869,360" />
-    <area alt="" title="" href="#" shape="poly" coords="311,57,282,69,273,87,276,96,285,107,305,116,331,113,351,102,358,90,355,72,335,61" />
-    <area alt="" title="" href="#" shape="poly" coords="327,122,310,127,301,134,300,149,305,160,322,169,337,167,348,163,360,147,353,130" />
-    <area alt="" title="" href="#" shape="rect" coords="191,203,206,262" />
-    <area alt="" title="" href="#" shape="poly" coords="345,457,320,462,311,473,307,482,310,494,328,504,340,506,353,506,377,502,391,491,390,479,379,467" />
-    <area alt="" title="" href="#" shape="poly" coords="624,515,609,520,593,527,588,546,593,559,624,572,644,568,656,562,665,550,666,532,649,517" />
-    <area alt="" title="" href="#" shape="poly" coords="663,387,645,403,641,417,648,431,661,437,676,435,685,420,683,402,676,392" />
-    <area alt="" title="" href="#" shape="rect" coords="368,11,408,41" />
-    <area alt="" title="" href="#" shape="rect" coords="462,86,481,158" />
-    <area alt="" title="" href="#" shape="rect" coords="701,116,718,161" />
-    <area alt="" title="" href="#" shape="rect" coords="857,203,872,223" />
-    [...]
+    <area alt="" shape="rect" coords="664,1287" />
+    <area alt="" title="" href="javascript:$('#HazardUnit').dialog('open')" shape="poly" coords="311,57,282,69,273,87,276,96,285,107,305,116,331,113,351,102,358,90,355,72,335,61" />
+    <area alt="" title="" href="javascript:$('#Control').dialog('open')" shape="poly" coords="327,122,310,127,301,134,300,149,305,160,322,169,337,167,348,163,360,147,353,130" />
+    <area alt="" title="" href="javascript:$('#IFFlush').dialog('open')" shape="rect" coords="191,203,206,262" />
+    <area alt="" title="" href="javascript:$('#ForwardUnit1').dialog('open')" shape="poly" coords="345,457,320,462,311,473,307,482,310,494,328,504,340,506,353,506,377,502,391,491,390,479,379,467" />
+    <area alt="" title="" href="javascript:$('#ForwardUnit2').dialog('open')" shape="poly" coords="624,515,609,520,593,527,588,546,593,559,624,572,644,568,656,562,665,550,666,532,649,517" />
+    <area alt="" title="" href="javascript:$('#ALUcntrl').dialog('open')" shape="poly" coords="663,387,645,403,641,417,648,431,661,437,676,435,685,420,683,402,676,392" />
+    <area alt="" title="" href="javascript:$('#Branch').dialog('open')" shape="rect" coords="368,11,408,41" />
+    <area alt="" title="" href="javascript:$('#IDEX').dialog('open')" shape="rect" coords="462,86,481,158" />
+    <area alt="" title="" href="javascript:$('#EXMEM').dialog('open')" shape="rect" coords="701,116,718,161" />
+    <area alt="" title="" href="javascript:$('#MEMWB').dialog('open')" shape="rect" coords="857,203,872,223" />
 </map>
 </body>
 
