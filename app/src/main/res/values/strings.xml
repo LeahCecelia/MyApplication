@@ -37,11 +37,11 @@
     <string name="sn">S(N)</string>
     <string name="fractionp">(1-P) + (P/N) </string>
     <string name="increase_in_speed_p">Enter factor of parallelization, N</string>
-    <string name="fraction_tobe_spedup_p">Enter the fraction of program to be parallelized, P</string>
+    <string name="fraction_tobe_spedup_p">Enter the fraction to be parallelized, P</string>
     <string-array name="values_array_P">
-        <item>amount of parallelization</item>
-        <item>percent of program parallelized</item>
-        <item>overall speedup</item>
+        <item>amount of parallelization, N</item>
+        <item>percent of program parallelized, P</item>
+        <item>overall speedup, S(N)</item>
     </string-array>
     <string name="title_activity_pipelining">Interactive Pipelining</string>
     <string name="title_activity_arm">ARMActivity</string>
