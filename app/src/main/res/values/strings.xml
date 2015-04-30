@@ -28,7 +28,7 @@
         <item>percent of program sped up</item>
         <item>overall speedup</item>
     </string-array>
-    <string name="title_activity_cto_mips">C to x86 Assembly</string>
+    <string name="title_activity_cto_mips">C to x86 Assembly or ARM</string>
     <string name="title_activity_mips_ref">Interactive MIPS Reference</string>
     <string name="pick_value">Pick value to calculate below: </string>
     <string name="with_para">With Parallelization</string>
