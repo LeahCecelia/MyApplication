@@ -64,18 +64,18 @@
 <a href = "MIPSControlPath_hazards.html#startText">Pipeline control path: Hazard control</a><br>
 
 <h2 id = "startText">Hazard control in the MIPS Pipeline</h2>
-This interactive graphic explains how hazards are technically handled in the MIPS pipeline.  This graphic does not have interactive content for the basic parts of the technical implementation of the MIPS pipeline, but only the hazard control parts.  Click <a href="MIPSControlPath.html#startText"> here </a> for a graphic that has information on other parts of the MIPS pipeline.<br>
+This interactive graphic explains how hazards are technically handled in the MIPS pipeline.  This graphic does not have interactive content for the basic parts of the technical implementation of the MIPS pipeline, but only the hazard control parts.  Click <a href="MIPSControlPath.html#startText"> here </a> for a graphic that has information on other parts of the MIPS pipeline.  Feel free to click parts of this graphic for information about individual parts.<br>
 
-<div id="HazardUnit">Hazard Unit</div>
-<div id="Control">Hazard Unit</div>
-<div id="ForwardUnit1">Hazard Unit</div>
-<div id="ForwardUnit2">Hazard Unit</div>
-<div id="Branch">Hazard Unit</div>
-<div id="IFFlush">Hazard Unit</div>
-<div id="ALUcntrl">Hazard Unit</div>
-<div id="IDEX">Hazard Unit</div>
-<div id="EXMEM">Hazard Unit</div>
-<div id="MEMWB">Hazard Unit</div>
+<div id="HazardUnit">The Hazard Unit plays a hand in globally handling hazards.  It keeps the extra hazard bits for each stage in check, flushes the pipeline, and plays a role in updating the PC.</div>
+<div id="Control">The Control Unit tells the branch what to update the PC with.</div>
+<div id="ForwardUnit1">The forwarding units handle data forwarding.  This one appears to forward branch values, so that the pipeline can branch before the branch instruction finishes all cycles of execution - minimizing the number of stalls needed.</div>
+<div id="ForwardUnit2">The forwarding units handle data forwarding.  This one appears to forward register values to the ALU, to ensure that the register values being used are correct and most recent.</div>
+<div id="Branch">The Branch component control which value the PC will update with.  This could involve taking values from the ALU, or even branch prediction.</div>
+<div id="IFFlush">Sometimes, the pipeline will need to be flushed.  For example, if branch prediction predicts the wrong branch, the pipeline will probably need to be flushed. This is controlled by the Hazard Unit.</div>
+<div id="ALUcntrl">The ALU Control unit tells the ALU which values it needs to process at the current cycle.</div>
+<div id="IDEX">Some extra bits need to be added to the ID/EX stage state, to keep track of handling hazards.</div>
+<div id="EXMEM">Some extra bits need to be added to the EX/MEM stage state, to keep track of handling hazards.</div>
+<div id="MEMWB">Some extra bits need to be added to the MEM/WB stage state, to keep track of handling hazards.</div>
 
 <img src="HazardControl.png" alt="" usemap="#Map" />
 <map name="Map" id="Map">

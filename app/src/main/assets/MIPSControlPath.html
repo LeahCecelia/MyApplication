@@ -77,22 +77,22 @@
     </script>
 </head>
 <body>
-<div id = "address">1Blablabla</div>
-<div id = "adder">B2lablabla</div>
-<div id = "Memory1">Blab3labla</div>
-<div id = "IFID">B4lablabla</div>
-<div id = "RegFile">Blabla5bla</div>
-<div id = "SignExtend">Bl6ablabla</div>
-<div id = "IDEX">Blab7labla</div>
-<div id = "MUX1">Blab8labla</div>
-<div id = "MUX2">Blabl9abla</div>
-<div id = "ZERO">Blablab10la</div>
-<div id = "ALU">Blabla11bla</div>
-<div id = "EXMEM">Blab12labla</div>
-<div id = "MUX3">Blablab13la</div>
-<div id = "Memory2">Bla14blabla</div>
-<div id = "MEMWB">Bla15blabla</div>
-<div id = "MUX4">Bla16blabla</div>
+<div id = "address">The PC holds the memory address of the next instruction.</div>
+<div id = "adder">This adder adds four to the current address to calculate the address of the next instruction.</div>
+<div id = "Memory1">The instruction memory holds all of the possible instructions.</div>
+<div id = "RegFile">The register file stores all of the registers.</div>
+<div id = "SignExtend">The sign-extend component extends the sign on 16-bit immediates.</div>
+<div id = "MUX1">The multiplexer chooses which data to pass to the ALU.</div>
+<div id = "MUX2">The multiplexer chooses which data to pass to the ALU.</div>
+<div id = "ZERO">This passes the zero bit from the ALU to the EX/MEM state register.</div>
+<div id = "ALU">The ALU executes the arithmetic operations on the inputs.</div>
+<div id = "MUX3">This multiplexer chooses a value to update the PC with, which may not be the standard PC+4 from the adder if there was a branch.</div>
+<div id = "Memory2">Here, the memory is read or written to/from for lw and sw instructions.</div>
+<div id = "MEMWB">The MEM/WB pipeline state register stores the information necessary for the MEM/WB stage of the pipeline to know what to execute at the current cycle.</div>
+<div id = "MUX4">This multiplexer chooses a value read from memory to write to the register; almost exclusively used for lw operations.</div>
+<div id = "IFID">The IF/ID pipeline state register stores the information necessary for the IF/ID stage of the pipeline to know what to execute at the current cycle.</div>
+<div id = "IDEX">The ID/EX pipeline state register stores the information necessary for the ID/EX stage of the pipeline to know what to execute at the current cycle.</div>
+<div id = "EXMEM">The EX/MEM pipeline state register stores the information necessary for the EX/MEM stage of the pipeline to know what to execute at the current cycle.</div>
 
 <a href = "Pipelining.html#startText">Instruction Execution in Pipeline</a><br>
 <a href = "Pipelining2.html#startText">Parallel Execution in Pipeline</a><br>
@@ -103,7 +103,7 @@
 <a href = "MIPSControlPath_hazards.html#startText">Pipeline control path: Hazard control</a><br>
 
 <h2 id = "startText">A more complex view of the MIPS Pipeline</h2>
-This interactive graphic explains the MIPS pipeline process.  This graphic does not take into acount pipeline hazards.  Click <a href="MIPSControlPath_hazards.html#startText"> here </a> for a graphic that takes pipeline hazards into account.<br>
+This interactive graphic explains the MIPS pipeline process.  This graphic does not take into account pipeline hazards.  Click <a href="MIPSControlPath_hazards.html#startText"> here </a> for a graphic that takes pipeline hazards into account. Feel free to click parts of this graphic for information about individual parts.<br>
 <img src="SimplePipeline_MIPS.png" alt="" usemap="#Map"/>
 <map name="Map" id="Map">
     <area alt="" title="" shape="rect" coords="664,1287" />
