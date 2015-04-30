@@ -7,6 +7,11 @@
     <script src="pipeline.js"></script>
     <script>       
        $(document).ready(function (){
+            makePipeline("pipeline", 4,0,0);
+            makePipeline("pipeline2", 6,1,3);
+            makePipeline("pipeline3", 3,1,1,true);
+            makePipeline("pipeline4", 5,1,3,true);
+
        });
     </script>
 </head>
@@ -20,13 +25,55 @@
 <a href = "MIPSControlPath.html#startText">Pipeline control path: No hazard control</a><br>
 <a href = "MIPSControlPath_hazards.html#startText">Pipeline control path: Hazard control</a><br>
 <h2 id = "startText">Control Hazards</h1>
-<p>Control hazards can cause a greater performance loss for the MIPS pipeline than <a href = "datahazards.html#startText">data hazards</a>. When a branch is executed, it may or may not change the PC (program counter) to something other than its current value plus 4. If a branch changes the PC to its target address, it is a taken branch; if it falls through, it is not taken.
-</p>
+    <p>Control hazards can cause a greater performance loss for the MIPS pipeline than <a href = "datahazards.html#startText">data hazards</a>. When a branch is executed, it may or may not change the PC (program counter) to something other than its current value plus 4. If a branch changes the PC to its target address, it is a taken branch; if it falls through, it is not taken.
+    </p>
+    <p>
+        The simplest method of dealing with branches is to stall the pipeline as soon as the branch is detected until we reach the MEM stage, which determines the new PC. Where the stall occurs after the instruction is decoded
+
+    </p>
+
+    <table><tr><td>Beq $1,$2,L </td><td rowspan = "5">
+        <table id = "pipeline" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', 3, 0, 1, 1)"></table>
+    </td></tr>
+        <tr><td>lw</td></tr>
+        <tr><td>Inst 3</td></tr>
+        <tr><td>Inst 4</td></tr>
+
+    </table>
+
 <p>
-    The simplest method of dealing with branches is to stall the pipeline as soon as the branch is detected until we reach the MEM stage, which determines the new PC. Where the stall occurs after the instruction is decoded
-
+    Now lets show you how to fix this control hazard using stalls.
 </p>
+    <table><tr><td>Beq </td><td rowspan = "5">
+        <table id = "pipeline2" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline2', 3, 0, 4, 4)"></table>
+    </td></tr>
+        <tr><td>stall</td></tr>
+        <tr><td>stall</td></tr>
+        <tr><td>stall</td></tr>
+        <tr><td>lw</td></tr>
+        <tr><td>Inst 3</td></tr>
 
+    </table>
+
+    <p>
+        In MIPS the function j, does jumps but it has a special pipe lining feature that is also used equally for beq as well, they use flushing, the following are examples of this.
+    </p>
+
+    <table><tr><td>j </td><td rowspan = "5">
+        <table id = "pipeline3" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline3', 1, 0, 2, 2)"></table>
+    </td></tr>
+        <tr><td>flush</td></tr>
+        <tr><td>j target</td></tr>
+    </table>
+
+    <table><tr><td>beq </td><td rowspan = "5">
+        <table id = "pipeline4" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline4', 3, 0, 4, 4)"></table>
+    </td></tr>
+        <tr><td>flush</td></tr>
+        <tr><td>flush</td></tr>
+        <tr><td>flush</td></tr>
+        <tr><td>beq target</td></tr>
+    </table>
 
 </body>
 
