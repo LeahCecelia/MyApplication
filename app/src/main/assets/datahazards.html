@@ -7,12 +7,49 @@
     <script src="pipeline.js"></script>
     <script>       
        $(document).ready(function (){
+            makePipeline("pipeline", 5);
+            makePipeline("pipeline2", 2);
        });
     </script>
 </head>
 
 <body>
+    <p>There are several main solutions and algorithms used to resolve data hazards:
+    </p>
+<p>data forwarding is an optimization in pipelined CPUs to limit performance deficits which occur due to pipeline stalls. A data hazard can lead to a pipeline stall when the current operation has to wait for the results of an earlier operation which has not yet finished.
+</p>
 
+<table><tr><td>add R1, R2, R3, </td><td rowspan = "5">
+    <table id = "pipeline" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', 4, 0, 4, 3)"></table>
+</td></tr>
+    <tr><td>sub R4, R5, R1,</td></tr>
+    <tr><td>and R6, R1, R7, Loop</td></tr>
+    <tr><td>or R8, R1, R9,</td></tr>
+    <tr><td>xor R10,R1,R11 Loop</td></tr>
+<p>
+    All the instructions after the ADD use the result of the ADD instruction (in R1). The ADD instruction writes the value of R1 in the WB stage (shown black), and the SUB instruction reads the value during ID stage (IDsub).
+</p>
+
+    <p>The AND instruction is also affected by this data hazard. The write of R1 does not complete until the end of cycle 5 (shown black). Thus, the AND instruction that reads the registers during cycle 4 (IDand) will receive the wrong result.</p>
+
+    <p>The OR instruction can be made to operate without incurring a hazard by a simple implementation technique. The technique is to perform register file reads in the second half of the cycle, and writes in the first half. Because both WB  for ADD and IDor for OR are performed in one cycle 5, the write to register file by ADD will perform in the first half of the cycle, and the read of registers by OR will perform in the second half of the cycle.</p>
+
+    <p>The XOR instruction operates properly, because its register read occur in cycle 6 after the register write by ADD.</p>
+
+    <p>another example would be:</p>
+
+    <table><tr><td>lw $s1, 4($sp) </td><td rowspan = "5">
+        <table id = "pipeline2" cellspacing = "0" cellpadding = "0" onclick = "movePipeline('pipeline', 4, 0, 2, 1)"></table>
+    </td></tr>
+        <tr><td>add $s0, $s1, $s2</td></tr>
+
+    </table><br>
+
+    <ul>
+        <li><a href = "datahazards.html">Data Hazards</a></li>
+        <li><a href = "controlhazards.html">Control Hazards</a></li>
+        <li><a href = "structuralhazards.html">Structural Hazards</a></li>
+    </ul>
 
 </body>
 
